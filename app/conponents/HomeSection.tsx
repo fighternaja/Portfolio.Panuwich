@@ -47,7 +47,7 @@ export function HomeSection() {
                             className="mb-6"
                         >
                             <span className="inline-block px-4 py-1 rounded-md bg-primary/10 text-primary border border-primary/20 text-sm font-medium tracking-wider uppercase">
-                                Programmer | Backend Developer
+                                Panuwich Thammawong
                             </span>
                         </motion.div>
 
@@ -58,9 +58,9 @@ export function HomeSection() {
                             className="mb-6 font-bold leading-[1.1]"
                             style={{ fontSize: 'clamp(3rem, 6vw, 5rem)' }}
                         >
-                            <span className="text-white block">Panuwich</span>
-                            <span className="text-primary block uppercase tracking-tighter mt-[-0.5rem]">
-                                Thammawong
+                            <span className="text-white block">Programmer</span>
+                            <span className="text-white block mt-2">
+                                Backend Developer
                             </span>
                         </motion.h1>
 

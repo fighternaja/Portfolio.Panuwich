@@ -120,17 +120,6 @@ export function HomeSection() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-60" />
                             </div>
                         </div>
-
-                        <motion.div
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-6 -right-6 w-12 h-12 border-2 border-primary/50 rounded-lg rotate-12"
-                        />
-                        <motion.div
-                            animate={{ y: [0, 15, 0] }}
-                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -bottom-10 -left-10 w-20 h-20 border border-white/10 rounded-full"
-                        />
                     </motion.div>
                 </div>
             </div>

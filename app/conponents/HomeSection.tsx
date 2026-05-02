@@ -7,7 +7,7 @@ export function HomeSection() {
     };
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <section id="home" className="min-h-screen flex items-center justify-center pt-12 relative overflow-hidden">
             {/* Animated background orb */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <motion.div
@@ -71,8 +71,7 @@ export function HomeSection() {
                             className="mb-10 text-gray-400 max-w-lg leading-relaxed"
                             style={{ fontSize: 'clamp(1rem, 2vw, 1.125rem)' }}
                         >
-                            Crafting beautiful, performant web experiences with modern technologies.
-                            Passionate about creating user-centric solutions that make a difference.
+
                         </motion.p>
 
                         <motion.div
@@ -87,7 +86,7 @@ export function HomeSection() {
                             >
                                 {/* Wip-Wap Shimmer Effect */}
                                 <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
-                                
+
                                 <span className="relative z-10 flex items-center gap-2">
                                     VIEW PROJECTS
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -100,7 +99,7 @@ export function HomeSection() {
                             >
                                 {/* Subtle Glow/Shimmer */}
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
-                                
+
                                 <span className="relative z-10">CONTACT ME</span>
                             </button>
                         </motion.div>
@@ -129,6 +128,19 @@ export function HomeSection() {
                     </motion.div>
                 </div>
             </div>
+            <motion.div
+                className="absolute bottom-10 left-1/2 -translate-x-1/2"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 1, repeat: Infinity }}
+            >
+                <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
+                    <motion.div
+                        className="w-1.5 h-1.5 rounded-full bg-white"
+                        animate={{ y: [0, 12, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    />
+                </div>
+            </motion.div>
         </section>
     );
 }

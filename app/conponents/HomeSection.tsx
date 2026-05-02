@@ -83,20 +83,25 @@ export function HomeSection() {
                         >
                             <button
                                 onClick={() => scrollToSection("projects")}
-                                className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-md font-bold overflow-hidden transition-all duration-300 hover:scale-105 hover:bg-primary/90 shadow-[0_0_20px_rgba(var(--primary),0.3)]"
+                                className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(var(--primary),0.5)] border border-white/10"
                             >
+                                {/* Wip-Wap Shimmer Effect */}
+                                <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+                                
                                 <span className="relative z-10 flex items-center gap-2">
                                     VIEW PROJECTS
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </span>
-                                <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
                             </button>
 
                             <button
                                 onClick={() => scrollToSection("contact")}
-                                className="group px-8 py-4 bg-secondary text-secondary-foreground rounded-md border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 font-bold flex items-center gap-2"
+                                className="group relative px-8 py-4 bg-white/5 backdrop-blur-sm text-white rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 hover:scale-105 font-bold overflow-hidden"
                             >
-                                CONTACT ME
+                                {/* Subtle Glow/Shimmer */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+                                
+                                <span className="relative z-10">CONTACT ME</span>
                             </button>
                         </motion.div>
                     </div>
@@ -112,11 +117,12 @@ export function HomeSection() {
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl" />
 
                         <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl backdrop-blur-sm bg-white/5 p-2">
-                            <div className="aspect-[4/3] rounded-xl overflow-hidden bg-zinc-900 flex items-center justify-center border border-white/5">
-                                <div className="text-zinc-500 text-center p-8">
-                                    <img className="" src="/image/hero1.png" alt="hero image"></img>
-                                    <div className="mt-4 w-12 h-12 border-2 border-primary/20 rounded-full mx-auto animate-spin" />
-                                </div>
+                            <div className="aspect-[4/3] rounded-xl overflow-hidden bg-zinc-900 relative border border-white/5">
+                                <img
+                                    className="w-full h-full object-cover object-[center_20%]"
+                                    src="./DSC05941.jpg"
+                                    alt="hero image"
+                                />
                                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-60" />
                             </div>
                         </div>

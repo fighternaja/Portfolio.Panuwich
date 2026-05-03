@@ -37,7 +37,7 @@ export function About() {
                         style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
                         <span className="text-white">About</span> <span className="text-zinc-500">Me</span>
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent mx-auto rounded-full" />
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full" />
                 </motion.div>
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <motion.div
@@ -85,12 +85,15 @@ export function About() {
                                         <div className={`absolute -inset-0.5 bg-gradient-to-r ${skill.color} rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
                                         {/* Content */}
-                                        <div className="relative p-4 bg-zinc-900/50 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg group-hover:border-white/20 h-full transition-colors duration-300">
-                                            <div className="flex items-center gap-3">
-                                                <div className={`p-2 rounded-lg bg-gradient-to-br ${skill.color}`}>
+                                        <div className="relative p-4 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-md rounded-xl border border-white/10 shadow-lg group-hover:border-white/30 h-full transition-all duration-300 overflow-hidden">
+                                            {/* Shimmer Effect */}
+                                            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+                                            
+                                            <div className="flex items-center gap-3 relative z-10">
+                                                <div className={`p-2 rounded-lg bg-gradient-to-br ${skill.color} group-hover:scale-110 transition-transform duration-300`}>
                                                     <Icon className="w-5 h-5 text-white" />
                                                 </div>
-                                                <span className="font-medium text-white">{skill.name}</span>
+                                                <span className="font-medium text-white group-hover:text-white transition-colors">{skill.name}</span>
                                             </div>
                                         </div>
                                     </motion.div>

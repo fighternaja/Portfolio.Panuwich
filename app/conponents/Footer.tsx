@@ -9,7 +9,7 @@ export function Footer() {
                     {/* Brand Section */}
                     <div className="flex flex-col gap-6">
                         <div className="text-2xl font-bold text-white">
-                            Panuwich Thammawong<span className="text-primary">.</span>
+                            Panuwich Thammawong<span className="text-primary"> .</span>
                         </div>
                         <p className="text-zinc-400 leading-relaxed max-w-xs">
                             Creating modern web experiences with passion and precision.
@@ -58,7 +58,7 @@ export function Footer() {
                         <ul className="flex flex-col gap-4">
                             <li className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
                                 <Mail className="w-5 h-5 text-primary/60" />
-                                <span>panuwich@example.com</span>
+                                <span>fighterkab123@gmail.com</span>
                             </li>
                             <li className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
                                 <Phone className="w-5 h-5 text-primary/60" />

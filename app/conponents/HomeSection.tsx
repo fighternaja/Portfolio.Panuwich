@@ -47,7 +47,7 @@ export function HomeSection() {
                             className="mb-6"
                         >
                             <span className="inline-block px-4 py-1 rounded-md bg-primary/10 text-primary border border-primary/20 text-sm font-medium tracking-wider uppercase">
-                                Panuwich Thammawong
+                                👋 Panuwich Thammawong
                             </span>
                         </motion.div>
 

@@ -71,7 +71,8 @@ export function HomeSection() {
                             className="mb-10 text-gray-400 max-w-lg leading-relaxed"
                             style={{ fontSize: 'clamp(1rem, 2vw, 1.125rem)' }}
                         >
-
+                            I am a programmer specializing in backend development with expertise in HTML, CSS, JavaScript, TypeScript, Bootstrap, Next.js, React, Node.js, MySQL and PHP.
+                            Crafting beautiful, performant web experiences with modern technologies. Passionate about creating user-centric solutions that make a difference.
                         </motion.p>
 
                         <motion.div

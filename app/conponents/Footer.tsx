@@ -41,7 +41,7 @@ const Facebook = ({ className }: { className?: string }) => (
 
 export function Footer() {
     return (
-        <footer className="relative bg-zinc-950 pt-24 pb-12 overflow-hidden border-t border-white/5">
+        <footer className="relative bg-white/[0.02] backdrop-blur-lg pt-24 pb-12 overflow-hidden border-t border-white/5">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
                     {/* Brand Section */}
@@ -111,6 +111,7 @@ export function Footer() {
                 </div>
             </div>
             {/* Decorative background glow */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
         </footer>
     );

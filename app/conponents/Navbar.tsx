@@ -88,20 +88,20 @@ export function Navbar() {
                     height: isMobileMenuOpen ? "auto" : 0,
                     opacity: isMobileMenuOpen ? 1 : 0,
                 }}
-                className="md:hidden overflow-hidden bg-background/95 backdrop-blur-lg border-b border-border"
+                className="md:hidden overflow-hidden bg-black/40 backdrop-blur-lg border-b border-white/10"
             >
-                <div className="container mx-auto px-4 py-4 space-y-2">
+                <div className="container mx-auto px-4 py-4 space-y-1">
                     {navLinks.map((link) => (
                         <button
                             key={link.id}
                             onClick={() => scrollToSection(link.id)}
-                            className="block w-full text-center px-4 py-3 rounded-lg hover:bg-accent transition-colors"
+                            className="block w-full text-center px-4 py-3 rounded-xl text-white hover:text-primary hover:bg-white/5 transition-all duration-200 font-medium"
                         >
                             {link.name}
                         </button>
                     ))}
                 </div>
             </motion.div>
-        </motion.nav >
+        </motion.nav>
     );
 }

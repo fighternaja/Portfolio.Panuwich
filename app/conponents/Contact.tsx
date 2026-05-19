@@ -71,7 +71,6 @@ export function Contact() {
 
     return (
         <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            {/* Animated background orb */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-[100px]" />
                 <div className="absolute bottom-20 left-10 w-96 h-96 bg-secondary/10 rounded-full blur-[100px]" />

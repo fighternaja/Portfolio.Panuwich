@@ -1,6 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion"
-import { div, section } from "framer-motion/client"
-import { Mail, Send } from "lucide-react"
+import { useState } from "react"
+import { Mail, Send, CheckCircle2 } from "lucide-react"
 
 const Github = ({ className }: { className?: string }) => (
     <svg
@@ -24,7 +26,7 @@ const contacts = [
         icon: Mail,
         label: "Email",
         value: "fighterkab123@gmail.com",
-        href: "fighterkab123@gmail.com",
+        href: "mailto:fighterkab123@gmail.com",
         color: "from-primary/50 to-secondary/50"
     },
     {
@@ -36,6 +38,37 @@ const contacts = [
     }
 ]
 export function Contact() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        const form = e.currentTarget;
+        const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+        const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+        const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            if (!res.ok) throw new Error("Server error");
+            setIsSubmitted(true);
+            e.currentTarget.reset();
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+            setTimeout(() => setIsSubmitted(false), 5000);
+        }
+    };
+
     return (
         <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             {/* Animated background orb */}
@@ -72,7 +105,6 @@ export function Contact() {
                                 transition={{ delay: index * 0.1 }}
                                 whileHover={{ scale: 1.05, y: -5 }}
                                 className="group relative block"
-                                onClick={(e) => e.preventDefault()}
                             >
                                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${contact.color} rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-300`} />
 
@@ -104,13 +136,15 @@ export function Contact() {
                     <div className="relative p-8 bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
                         <h3 className="mb-6 text-center text-2xl font-bold text-white">Send me a message</h3>
 
-                        <form className="space-y-4">
+                        <form onSubmit={handleSubmit} className="space-y-4">
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label htmlFor="name" className="block mb-2 text-sm text-zinc-400">Name</label>
                                     <input
                                         type="text"
                                         id="name"
+                                        name="name"
+                                        required
                                         className="w-full px-4 py-3 bg-white/[0.03] hover:bg-white/[0.05] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-white placeholder:text-zinc-500 transition-all"
                                         placeholder="Your name"
                                     />
@@ -120,6 +154,8 @@ export function Contact() {
                                     <input
                                         type="email"
                                         id="email"
+                                        name="email"
+                                        required
                                         className="w-full px-4 py-3 bg-white/[0.03] hover:bg-white/[0.05] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-white placeholder:text-zinc-500 transition-all"
                                         placeholder="your@email.com"
                                     />
@@ -130,6 +166,8 @@ export function Contact() {
                                 <label htmlFor="message" className="block mb-2 text-sm text-zinc-400">Message</label>
                                 <textarea
                                     id="message"
+                                    name="message"
+                                    required
                                     rows={5}
                                     className="w-full px-4 py-3 bg-white/[0.03] hover:bg-white/[0.05] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-white placeholder:text-zinc-500 transition-all resize-none"
                                     placeholder="Your message..."
@@ -138,12 +176,27 @@ export function Contact() {
 
                             <motion.button
                                 type="submit"
+                                disabled={isSubmitting}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="w-full py-4 bg-primary text-white rounded-xl font-bold shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--primary),0.5)] transition-all duration-300 flex items-center justify-center gap-2 group"
+                                className="w-full py-4 bg-primary text-white rounded-xl font-bold shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--primary),0.5)] transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                             >
-                                <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                SEND MESSAGE
+                                {isSubmitting ? (
+                                    <span className="flex items-center gap-2">
+                                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                        SENDING...
+                                    </span>
+                                ) : isSubmitted ? (
+                                    <span className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-5 h-5" />
+                                        MESSAGE SENT!
+                                    </span>
+                                ) : (
+                                    <>
+                                        <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                        SEND MESSAGE
+                                    </>
+                                )}
                             </motion.button>
                         </form>
                     </div>

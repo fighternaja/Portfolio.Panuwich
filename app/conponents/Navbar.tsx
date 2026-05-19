@@ -69,7 +69,7 @@ export function Navbar() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="md:hidden p-2 rounded-lg bg-secondary hover:bg-accent transition-colors"
+                        className="md:hidden p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white border border-white/10 transition-colors"
                         aria-label="Toggle mobile menu"
                     >
                         {isMobileMenuOpen ? (

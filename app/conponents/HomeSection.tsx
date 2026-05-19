@@ -111,7 +111,7 @@ export function HomeSection() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1, delay: 0.4 }}
-                        className="relative hidden lg:block"
+                        className="relative mt-10 lg:mt-0 w-full max-w-lg mx-auto lg:max-w-none"
                     >
                         <div className="absolute -inset-4 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl" />
